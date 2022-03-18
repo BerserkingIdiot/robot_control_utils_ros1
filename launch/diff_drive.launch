@@ -1,0 +1,10 @@
+<launch>
+
+<node name="arduino_bridge" pkg="rosserial_python" type="serial_node.py">
+    <param name="port" value="/dev/ttyUSB0"/>
+    <param name="baud" value="57600"/>
+</node>
+
+<node name="diff_drive_controller" pkg="tairema" type="differential_drive_controller"/>
+
+</launch>
