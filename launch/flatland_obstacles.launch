@@ -3,6 +3,8 @@
         <arg name="world_path" value="$(find tairema_ros1)/flatland_worlds/obstacles_world.yaml"/>
     </include>
 
-    <include file="$(find keyboard_control)/launch/remote_control.launch"/>
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+        <param name="default_topic" value="/cmd_vel"/>
+    </node>
 
 </launch>
