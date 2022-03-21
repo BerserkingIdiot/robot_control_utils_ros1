@@ -5,6 +5,9 @@ import rospkg
 from sensor_msgs.msg import LaserScan
 import tf
 import csv
+import sys
+
+import os
 
 class csvExporterNode():
 
@@ -37,7 +40,20 @@ class csvExporterNode():
 
         rospy.init_node('csv_exporter', anonymous=True)
 
-        self.output_file = open('/home/berserkingidiot/ros_workspaces/msc_workspace/src/tairema_ros1/output/test.csv', 'w')
+        print(os.getcwd())
+
+        #sys.argv = rospy.myargv(argv=sys.argv)
+        #if len(sys.argv) >= 2 :
+        #    print("Too many arguments")
+        #    return
+        #elif len(sys.argv) == 2 :
+        #    self.file_path = sys.argv[1]
+        #else :
+        #    self.file_path = "test.csv"
+        
+        self.file_path = rospy.get_param('~output_file_path','test.csv')
+
+        self.output_file = open("src/tairema_ros1/output/" + self.file_path, "w")
 
         self.writer = csv.writer(self.output_file)
 
