@@ -159,6 +159,10 @@ include_directories(
 #target_link_libraries(differential_drive_controller
 #    ${catkin_LIBRARIES})
 
+
+add_executable(teleop_keyboard src/teleop_keyboard.cpp)
+target_link_libraries(teleop_keyboard ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############
