@@ -1,4 +1,4 @@
-#SERP model
+#SERP model with LiDAR
 
 bodies:
 
@@ -10,6 +10,7 @@ bodies:
     footprints:
       - type: polygon
         density: 1
+        layers: ["no_laser"]
         points: [ [-0.117, -0.055],
                   [0.048, -0.055],
                   [0.048, 0.055],
@@ -20,6 +21,7 @@ bodies:
     footprints:
       - type: polygon
         density: 1.0
+        layers: ["no_laser"]
         points: [ [ -0.035, -0.0125],
                   [ 0.035,  -0.0125],
                   [ 0.035, 0.0125],
@@ -29,6 +31,7 @@ bodies:
     footprints:
       - type: polygon
         density: 1.0
+        layers: ["no_laser"]
         points: [ [ -0.035, -0.0125],
                   [ 0.035,  -0.0125],
                   [ 0.035, 0.0125],
@@ -71,6 +74,6 @@ plugins:
     body: base_link
     range: 30
     angle: {min: -3.1415926535897931, max: 3.1415926535897931, increment: 0.03490658503988659}
-    #layers: ["layer_1", "layer_2", "layer_3"]
+    layers: ["map"]
     update_rate: 100
     #noise_std_dev: 0.01

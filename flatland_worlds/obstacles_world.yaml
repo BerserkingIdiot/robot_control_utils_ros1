@@ -1,6 +1,6 @@
 properties: {}
 layers:
-  - name: "map"
+  - name: ["map", "no_laser"]
     map: "conestogo_office.yaml"
     color: [0.4, 0.4, 0.4, 1]
 models:

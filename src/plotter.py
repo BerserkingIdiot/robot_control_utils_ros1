@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 import csv
 
-with open("output/sample2.csv") as file: 
+with open("output/sample3.csv") as file: 
     csv_data = list(csv.reader(file, delimiter=','))
 
     # create a figure and axes
