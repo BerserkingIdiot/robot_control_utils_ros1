@@ -5,10 +5,12 @@
     <param name="baud" value="57600"/>
 </node>
 
-<node name="diff_drive_controller" pkg="tairema" type="differential_drive_controller"/>
+<node name="diff_drive_controller" pkg="tairema" type="differential_drive_controller">
+    <remap from="/cmd_vel" to="/sim1/cmd_vel"/>
+</node>
 
 <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/cmd_vel"/>
+    <param name="default_topic" value="/sim1/cmd_vel"/>
 </node>
 
 </launch>

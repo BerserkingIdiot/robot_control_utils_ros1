@@ -61,19 +61,35 @@ plugins:
     odom_frame_id: serp_odom
     pub_rate: 10
     twist_sub: cmd_vel
-    enable_odom_pub: false
-    enable_twist_pub: false
+    odom_frame_id: odom
+    odom_pub: odom  # topic odom is published on
   
   - type: ModelTfPublisher
     name: tf_publisher
-    publish_tf_world: true
+    publish_tf_world: false
 
+   #original lidar
+#  - type: Laser
+#    name: lidar
+#    topic: lidar_scan
+#    body: base_link
+#    range: 30
+#    angle: {min: -3.1415926535897931, max: 3.1415926535897931, increment: 0.03490658503988659}
+#    layers: ["map"]
+#    update_rate: 100
+#    #noise_std_dev: 0.01
+
+  #lidar for DRL
   - type: Laser
-    name: lidar
-    topic: lidar_scan
+    name: static_laser
+    frame: static_laser_link
+    topic: static_laser
     body: base_link
-    range: 30
-    angle: {min: -3.1415926535897931, max: 3.1415926535897931, increment: 0.03490658503988659}
+    broadcast_tf: true
+    origin: [0.0, 0.0, 0.0]
+    range: 10
+    # angle: {min: -3.14159265359, max: 3.14159265359, increment: 0.05235987755}
+    angle: {min: -3.14159265359, max: 3.14159265359, increment: 0.06981317007}
+    noise_std_dev: 0.015
+    update_rate: 10
     layers: ["map"]
-    update_rate: 100
-    #noise_std_dev: 0.01
